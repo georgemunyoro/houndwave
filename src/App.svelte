@@ -8,7 +8,6 @@
 	const search = async () => {
 		const res = await fetch(process.env.API_URL + "/q?query=" + searchQuery);
 		const data = await res.json();
-		console.log(data);
 		songs = data.data.tracks.items;
 	};
 
