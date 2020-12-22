@@ -1,13 +1,10 @@
 <script>
-import { API_URL } from "./config";
-
-
   export let song;
   let downloading = false;
 
   const download = async () => {
     downloading = true;
-    const res = await fetch(API_URL + "/download/" + song.id);
+    const res = await fetch(process.env.API_URL + "/download/" + song.id);
     const blob = await res.blob();
     let url = window.URL.createObjectURL(blob);
     let a = document.createElement("a");
