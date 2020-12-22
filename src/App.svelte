@@ -1,13 +1,12 @@
 <script>
 	import { onMount } from "svelte";
-import { API_URL } from "./config";
 	import SongList from "./SongList.svelte";
 
 	let searchQuery;
 	let songs;
 
 	const search = async () => {
-		const res = await fetch(API_URL + "/q?query=" + searchQuery);
+		const res = await fetch(process.env.API_URL + "/q?query=" + searchQuery);
 		const data = await res.json();
 		console.log(data);
 		songs = data.data.tracks.items;
