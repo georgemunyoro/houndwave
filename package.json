@@ -1,5 +1,13 @@
 {
-  "name": "svelte-app",
+  "name": "Houndwave",
+  "author": "George Munyoro",
+  "description": "An application for downloading music with metadata",
+  "keywords": [
+    "spotify",
+    "music",
+    "download",
+    "mp3"
+  ],
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
