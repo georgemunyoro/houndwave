@@ -4,7 +4,7 @@
 
   const download = async () => {
     downloading = true;
-    const res = await fetch(process.env.API_URL + "/download/" + song.id);
+    const res = await fetch(__myapp.env.API_URL + "/download/" + song.id);
     const blob = await res.blob();
     let url = window.URL.createObjectURL(blob);
     let a = document.createElement("a");

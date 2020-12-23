@@ -6,7 +6,7 @@
 	let songs;
 
 	const search = async () => {
-		const res = await fetch(process.env.API_URL + "/q?query=" + searchQuery);
+		const res = await fetch(__myapp.env.API_URL + "/q?query=" + searchQuery);
 		const data = await res.json();
 		songs = data.data.tracks.items;
 	};
