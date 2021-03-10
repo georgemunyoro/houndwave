@@ -29,11 +29,11 @@
 
     ffmpeg.FS("writeFile", "input.m4a", new Uint8Array(sourceBuffer, 0, sourceBuffer.byteLength));
     await ffmpeg.run("-i", "input.m4a", outputFileName);
-    
+
     const output = ffmpeg.FS("readFile", outputFileName);
 
     const coverImage = await fetch(song.album.images[0].url);
-    const coverArrayBuffer = await coverImage.arrayBuffer(); 
+    const coverArrayBuffer = await coverImage.arrayBuffer();
 
     const writer = new ID3Writer(output.buffer);
     writer.setFrame("TIT2", song.name)
@@ -70,7 +70,7 @@
   }
 
   .embed-row {
-        
+
   }
 </style>
 
