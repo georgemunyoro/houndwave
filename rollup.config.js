@@ -52,6 +52,7 @@ export default {
         env: {
           isProd: production,
           API_URL: process.env.API_URL,
+          CORS_PROXY: process.env.CORS_PROXY,
         },
       }),
     }),
