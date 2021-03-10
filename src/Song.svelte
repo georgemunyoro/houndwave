@@ -20,12 +20,10 @@
     const res = await fetch(__myapp.env.API_URL + `/download?artist=${song.artists[0].name}?title=${song.name}`);
     const data = await res.json()
 
-    const sourceBuffer = await fetch(`http://192.168.18.11:7070/${data.formats[1].url}`).then(r => r.arrayBuffer());
+    const sourceBuffer = await fetch(`${__myapp.env.CORS_PROXY}/${data.formats[1].url}`).then(r => r.arrayBuffer());
 
     const ffmpeg = createFFmpeg({ log: true });
     await ffmpeg.load();
-
-    // ffmpeg -i input.m4a -c:a libmp3lame -q:a 8 output.mp3
 
     const outputFileName = `${song.artists[0].name} - ${song.name}.mp3`;
 
