@@ -16,51 +16,17 @@
 
   const download = async () => {
     downloading = true;
-
-    const res = await fetch(__myapp.env.API_URL + `/download?artist=${song.artists[0].name}?title=${song.name}`);
-    const data = await res.json()
-
-    const sourceBuffer = await fetch(`${__myapp.env.CORS_PROXY}/${data.formats[1].url}`).then(r => r.arrayBuffer());
-
-    const ffmpeg = createFFmpeg({ log: true });
-    await ffmpeg.load();
-
-    const outputFileName = `${song.artists[0].name} - ${song.name}.mp3`;
-
-    ffmpeg.FS("writeFile", "input.m4a", new Uint8Array(sourceBuffer, 0, sourceBuffer.byteLength));
-    await ffmpeg.run("-i", "input.m4a", outputFileName);
-    
-    const output = ffmpeg.FS("readFile", outputFileName);
-
-    const coverImage = await fetch(song.album.images[0].url);
-    const coverArrayBuffer = await coverImage.arrayBuffer(); 
-
-    const writer = new ID3Writer(output.buffer);
-    writer.setFrame("TIT2", song.name)
-      .setFrame("TPE1", song.artists.map(({name}) => name))
-      .setFrame("TPE1", song.album.artists.map(({name}) => name))
-      .setFrame("TALB", song.album.name)
-      .setFrame("TYER", song.album.release_date)
-      .setFrame("TRCK", song.track_number)
-      .setFrame("APIC", {
-        type: 3,
-        data: coverArrayBuffer,
-        description: "Front Cover"
-      });
-    writer.addTag();
-
-    const url = writer.getURL();
-
+    const res = await fetch(__myapp.env.API_URL + "/download/" + song.id);
+    const blob = await res.blob();
+    let url = window.URL.createObjectURL(blob);
     let a = document.createElement("a");
     a.href = url;
-    a.download = outputFileName;
+    a.download = `${song.artists[0].name} - ${song.name}.mp3`;
     document.body.appendChild(a);
     a.click();
     a.remove();
-
     downloading = false;
-
-    };
+  };
 </script>
 
 <style>
