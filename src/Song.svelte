@@ -17,7 +17,7 @@
   const download = async () => {
     downloading = true;
 
-    const res = await fetch(__myapp.env.API_URL + `/download?artist=${song.artists[0].name}?title=${song.name}`);
+    const res = await fetch(__myapp.env.API_URL + `/download/${song.id}`);
     const data = await res.json()
 
     const sourceBuffer = await fetch(`${__myapp.env.CORS_PROXY}/${data.formats[1].url}`).then(r => r.arrayBuffer());
