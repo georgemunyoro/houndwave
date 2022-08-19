@@ -41,7 +41,7 @@
 </style>
 
 <tr class="card song">
-  <td><img class="art" src={song.album.images[0].url} alt="" /></td>
+  <td><img class="art" src={song.album.images[0]?.url} alt="" /></td>
   <td class="">
     <p class="has-text-weight-bold	">{song.name}</p>
     <p>{song.artists[0].name}</p>
