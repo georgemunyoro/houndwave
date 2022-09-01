@@ -15,6 +15,7 @@
   $: song, onSongChange();
 
   const download = async () => {
+    if (downloading) return
     downloading = true;
     const res = await fetch(__myapp.env.API_URL + "/download/" + song.id);
     const blob = await res.blob();
@@ -33,10 +34,6 @@
   .info {
     display: flex;
     border: none !important;
-  }
-
-  .embed-row {
-        
   }
 </style>
 
