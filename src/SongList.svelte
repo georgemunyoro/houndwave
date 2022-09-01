@@ -17,9 +17,13 @@
     flex-direction: column;
     padding-bottom: 100px;
   }
+
+  .song-list.dark-mode {
+    background: black;
+  }
 </style>
 
-<div class={`song-list ${inDarkMode ? "has-background-black" : ""}`}>
+<div class={`song-list ${inDarkMode ? "dark-mode" : ""}`}>
   {#if songs.length > 0}
     <table class={`table is-bordered table-bordered text-start ${inDarkMode && "has-background-black"}`}>
       <thead>

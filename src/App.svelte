@@ -1,6 +1,5 @@
 <script>
 	import { onMount } from "svelte";
-	import { HtmlTag } from "svelte/internal";
 	import SongList from "./SongList.svelte";
 	import { darkModeStore } from "./store";
 
@@ -57,6 +56,20 @@
 				left: 15vw;
 			}
 		}
+
+		.search.dark-mode::-webkit-input-placeholder {
+			/* Edge */
+			color: silver;
+		}
+
+		.search.dark-mode:-ms-input-placeholder {
+			/* Internet Explorer 10-11 */
+			color: silver;
+		}
+
+		.search.dark-mode::placeholder {
+			color: silver;
+		}
 	</style>
 </svelte:head>
 <main class="main is-centered is-flex is-justify-content-center is-half">
@@ -70,7 +83,7 @@
 			<div class="control">
 				<button
 					class={`button is-outlined is-radiusless has-background-${
-						inDarkMode ? "black" : "white"
+						inDarkMode ? "black has-text-light" : "white"
 					}`}
 					style="width: 3.8rem; height: 4rem; font-size: 1.5rem;"
 					on:click={toggleScheme}><i class="fa fa-circle-half-stroke" /></button
@@ -83,8 +96,8 @@
 						if (event.key == "Enter") search();
 					}}
 					style="height: 4rem; width: 100%; font-size: 1.2rem;"
-					class={`input has-background-${
-						inDarkMode ? "dark has-text-white" : "light"
+					class={`input search has-background-${
+						inDarkMode ? "dark dark-mode has-text-light" : "light"
 					} is-shadowless is-radiusless`}
 					type="text"
 					placeholder="Search for a track..."
@@ -93,7 +106,7 @@
 			<div class="control">
 				<button
 					class={`button is-outlined is-radiusless has-background-${
-						inDarkMode ? "black" : "white"
+						inDarkMode ? "black has-text-light" : "white"
 					}`}
 					style="width: 3.8rem; height: 4rem; font-size: 1.5rem;"
 					on:click={search}><i class="fa fa-search" /></button
