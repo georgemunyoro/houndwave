@@ -1,5 +1,12 @@
 <script>
   import Song from "./Song.svelte";
+  import {darkModeStore} from "./store"
+
+  let inDarkMode;
+
+  darkModeStore.subscribe(value => {
+    inDarkMode = value
+  })
 
   export let songs = [];
 </script>
@@ -8,17 +15,17 @@
   .song-list {
     display: flex;
     flex-direction: column;
-    background: white;
+    padding-bottom: 100px;
   }
 </style>
 
-<div class="song-list">
+<div class={`song-list ${inDarkMode ? "has-background-black" : ""}`}>
   {#if songs.length > 0}
-    <table class="table is-bordered table-bordered text-start">
+    <table class={`table is-bordered table-bordered text-start ${inDarkMode && "has-background-black"}`}>
       <thead>
-        <tr>
-          <th style="width: 9rem;">Cover Art</th>
-          <th style="width: 100vw">Title</th>
+        <tr class={`${inDarkMode && "has-background-dark"}`}>
+          <th class={`${inDarkMode && "has-text-light"}`} style="width: 9rem;">Cover Art</th>
+          <th class={`${inDarkMode && "has-text-light"}`} style="width: 100vw">Title</th>
         </tr>
       </thead>
       <tbody>
