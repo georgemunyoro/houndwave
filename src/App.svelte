@@ -79,6 +79,8 @@
 		} p-1`}
 		style="padding: 0px 5px 10px 5px !important; height: 6rem;"
 	>
+
+	<div style="padding: 10px; margin-bottom: 10px;" class="card has-background-dark has-text-success">We're back!!! Didn't realize this would be so popular, so might be a few issues here and there, but I'm now actively working on this project as much as I can. Feel free to request features and file issues/bugs <a href="https://github.com/georgemunyoro/houndwave">on the github repo</a></div>
 		<div class="field has-addons has-desktop-shadow is-paddingless">
 			<div class="control">
 				<button
