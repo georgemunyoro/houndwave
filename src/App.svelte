@@ -80,11 +80,10 @@
 		style="padding: 0px 5px 10px 5px !important; height: 6rem;"
 	>
 
-	<div style="padding: 10px; margin-bottom: 10px;" class="card has-background-dark has-text-danger">Hey there! Didn't realize this would be so popular, unfortunately I've exceeded some of my API quotas. I'm currently working on a more foolproof solution, and we should be back up in a day. Feel free to request features and file issues/bugs <a href="https://github.com/georgemunyoro/houndwave">on the github repo</a></div>
+	<div style="padding: 10px; margin-bottom: 10px;" class="card has-background-dark has-text-success">We're back!!! Didn't realize this would be so popular, so might be a few issues here and there, but I'm now actively working on this project as much as I can. Feel free to request features and file issues/bugs <a href="https://github.com/georgemunyoro/houndwave">on the github repo</a></div>
 		<div class="field has-addons has-desktop-shadow is-paddingless">
 			<div class="control">
 				<button
-					disabled={true}
 					class={`button is-outlined is-radiusless has-background-${
 						inDarkMode ? "black has-text-light" : "white"
 					}`}
@@ -94,7 +93,6 @@
 			</div>
 			<div class="control" style="width: 100%;">
 				<input
-					disabled={true}
 					bind:value={searchQuery}
 					on:keypress={(event) => {
 						if (event.key == "Enter") search();
@@ -109,7 +107,6 @@
 			</div>
 			<div class="control">
 				<button
-					disabled={true}
 					class={`button is-outlined is-radiusless has-background-${
 						inDarkMode ? "black has-text-light" : "white"
 					}`}
