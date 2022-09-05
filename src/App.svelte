@@ -7,6 +7,7 @@
 	let songs;
 
 	const search = async () => {
+		plausible("search", searchQuery)
 		const res = await fetch(__myapp.env.API_URL + "/q?query=" + searchQuery);
 		const data = await res.json();
 		songs = data.data.tracks.items;
