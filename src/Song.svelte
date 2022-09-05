@@ -22,6 +22,7 @@
   });
 
   const download = async () => {
+    plausible("download", song)
     if (downloading) return;
     downloading = true;
     const res = await fetch(__myapp.env.API_URL + "/download/" + song.id);
