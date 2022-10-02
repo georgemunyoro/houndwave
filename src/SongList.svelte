@@ -28,7 +28,7 @@
     <table class={`table is-bordered table-bordered text-start ${inDarkMode && "has-background-black"}`}>
       <thead>
         <tr class={`${inDarkMode && "has-background-dark"}`}>
-          <th class={`${inDarkMode && "has-text-light"}`} style="width: 9rem;">Cover Art</th>
+          <th class={`${inDarkMode && "has-text-light"}`} style="width: 9rem;">Cover</th>
           <th class={`${inDarkMode && "has-text-light"}`} style="width: 100vw">Title</th>
         </tr>
       </thead>
