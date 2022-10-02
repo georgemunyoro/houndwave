@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from "svelte";
 	import SongList from "./SongList.svelte";
-	import { darkModeStore } from "./store";
+	import { darkModeStore, soundStore } from "./store";
 
 	let searchQuery;
 	let songs;
@@ -9,10 +9,12 @@
 	const search = async () => {
 		const res = await fetch(__myapp.env.API_URL + "/q?query=" + searchQuery);
 		const data = await res.json();
-		songs = data.data.tracks.items;
+		songs = data.data;
 	};
 
 	let inDarkMode;
+
+	let sound;
 
 	darkModeStore.subscribe((value) => {
 		inDarkMode = value;
@@ -79,23 +81,6 @@
 		} p-1`}
 		style="padding: 0px 5px 10px 5px !important; height: 6rem;"
 	>
-		<script
-			async
-			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9986712438425399"
-			crossorigin="anonymous"></script>
-		<!-- houndwave -->
-		<ins
-			class="adsbygoogle"
-			style="display: block"
-			data-ad-client="ca-pub-9986712438425399"
-			data-ad-slot="1810286132"
-			data-ad-format="auto"
-			data-full-width-responsive="true"
-		/>
-		<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-
 		<div
 			style="padding: 10px; margin-bottom: 10px;"
 			class="card has-background-dark has-text-success"
