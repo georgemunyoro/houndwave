@@ -61,10 +61,6 @@
     </button>
     <button
       class={`button is-${inDarkMode ? "dark" : "white"}`}
-      style="width: 2rem;"><i class="fa fa-info" /></button
-    >
-    <button
-      class={`button is-${inDarkMode ? "dark" : "white"}`}
       on:click={() => (showEmbed = !showEmbed)}
       style="width: 2rem;"><i class="fa fa-play" /></button
     >
