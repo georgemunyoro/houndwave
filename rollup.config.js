@@ -53,6 +53,7 @@ export default {
           isProd: production,
           API_URL: process.env.API_URL,
           CORS_PROXY: process.env.CORS_PROXY,
+          SENTRY_URL: process.env.SENTRY_URL,
         },
       }),
     }),
