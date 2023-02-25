@@ -5,7 +5,7 @@ import { BrowserTracing } from "@sentry/tracing";
 
 // Initialize the Sentry SDK here
 Sentry.init({
-  dsn: process.env.SENTRY_URL,
+  dsn: __myapp.env.SENTRY_URL,
   integrations: [new BrowserTracing()],
   tracesSampleRate: 1.0,
 });
