@@ -35,7 +35,7 @@
   };
 </script>
 
-<tr class="card song">
+<tr class={`card song ${inDarkMode && "has-background-dark"}`}>
   <td class={`${inDarkMode && "has-background-black has-text-white-ter"}`}
     ><img class="art" src={song.album.images[0]?.url} alt="" /></td
   >
