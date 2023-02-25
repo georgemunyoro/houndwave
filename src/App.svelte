@@ -5,13 +5,20 @@
 
   let searchQuery;
   let songs;
+  let isSearching = false;
 
   const search = async () => {
     if (searchQuery.trim().length == 0) return;
-    plausible("search", { props: { searchQuery } });
-    const res = await fetch(__myapp.env.API_URL + "/q?query=" + searchQuery);
-    const data = await res.json();
-    songs = data.data.tracks.items;
+    isSearching = true;
+    try {
+      plausible("search", { props: { searchQuery } });
+      const res = await fetch(__myapp.env.API_URL + "/q?query=" + searchQuery);
+      const data = await res.json();
+      songs = data.data.tracks.items;
+    } catch (e) {
+    } finally {
+      isSearching = false;
+    }
   };
 
   let inDarkMode;
@@ -121,8 +128,14 @@
             inDarkMode ? "black has-text-light" : "white"
           }`}
           style="width: 3.8rem; height: 4rem; font-size: 1.5rem;"
-          on:click={search}><i class="fa fa-search" /></button
+          on:click={search}
         >
+          {#if isSearching}
+            <i class="fa fa-spinner fa-spin" />
+          {:else}
+            <i class="fa fa-search" />
+          {/if}
+        </button>
       </div>
     </div>
     <SongList {songs} />
