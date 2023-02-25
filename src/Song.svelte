@@ -1,7 +1,4 @@
 <script>
-  import ID3Writer from "browser-id3-writer";
-  import { onDestroy } from "svelte";
-  import { createFFmpeg } from "@ffmpeg/ffmpeg";
   import { darkModeStore } from "./store";
 
   export let song;
@@ -22,7 +19,7 @@
   });
 
   const download = async () => {
-    plausible("download", {props: song})
+    plausible("download", { props: song });
     if (downloading) return;
     downloading = true;
     const res = await fetch(__myapp.env.API_URL + "/download/" + song.id);
@@ -47,11 +44,17 @@
     <p>{song.artists[0].name}</p>
     <p>{song.album.release_date}</p>
   </td>
-  <td class={`info flex-columns is-flex-direction-column ${inDarkMode && "has-background-dark"}`} style="">
+  <td
+    class={`info flex-columns is-flex-direction-column ${
+      inDarkMode && "has-background-dark"
+    }`}
+    style=""
+  >
     <button
       class={`button is-${inDarkMode ? "dark" : "white"}`}
       style="width: 2rem;"
       on:click={download}
+      disabled={downloading}
     >
       {#if downloading}
         <div class="loader-wrapper">
@@ -70,6 +73,7 @@
   {#if showEmbed}
     <td colspan="3" style="margin-top: 10px">
       <iframe
+        title={song.id}
         src={`https://open.spotify.com/embed/track/${song.id}`}
         width="100%"
         height="80"
