@@ -12,7 +12,7 @@ Sentry.init({
   replaysOnErrorSampleRate: 1.0,
   integrations: [
     new Sentry.Replay({
-      mask: false,
+      mask: [],
     }),
   ],
   release: __myapp.env.RELEASE,
