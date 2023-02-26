@@ -8,6 +8,11 @@ Sentry.init({
   dsn: __myapp.env.SENTRY_URL,
   integrations: [new BrowserTracing()],
   tracesSampleRate: 1.0,
+  replaysSessionSampleRate: 1.0,
+  replaysOnErrorSampleRate: 1.0,
+  integrations: [
+    new Sentry.Replay()
+  ]
 });
 
 const app = new App({
