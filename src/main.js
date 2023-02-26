@@ -11,8 +11,10 @@ Sentry.init({
   replaysSessionSampleRate: 1.0,
   replaysOnErrorSampleRate: 1.0,
   integrations: [
-    new Sentry.Replay()
-  ]
+    new Sentry.Replay({
+      mask: false,
+    }),
+  ],
 });
 
 const app = new App({
