@@ -64,6 +64,11 @@
         width: 70vw;
         left: 15vw;
       }
+
+      .release-version {
+        padding: 10px 0;
+        margin-top: -18px;
+      }
     }
 
     .search.dark-mode::-webkit-input-placeholder {
@@ -92,9 +97,7 @@
       style="padding: 10px; margin-bottom: 10px;"
       class="card has-background-dark has-text-success"
     >
-      We're back!!! Didn't realize this would be so popular, so might be a few
-      issues here and there, but I'm now actively working on this project as
-      much as I can. Feel free to request features and file issues/bugs <a
+      Feel free to request features and file issues/bugs <a
         href="https://github.com/georgemunyoro/houndwave">on the github repo</a
       >
     </div>
@@ -138,6 +141,7 @@
         </button>
       </div>
     </div>
+    <div class="release-version">version: {__myapp.env.RELEASE}</div>
     <SongList {songs} />
   </div>
 </main>

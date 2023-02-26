@@ -6,9 +6,15 @@ import { terser } from "rollup-plugin-terser";
 import css from "rollup-plugin-css-only";
 import { config as configDotEnv } from "dotenv";
 import replace from "@rollup/plugin-replace";
-import json from '@rollup/plugin-json';
+import json from "@rollup/plugin-json";
 
 const production = !process.env.ROLLUP_WATCH;
+
+const RELEASE = require("child_process")
+  .execSync("git rev-parse HEAD")
+  .toString()
+  .trim()
+  .slice(0, 7);
 
 configDotEnv();
 
@@ -54,6 +60,7 @@ export default {
           API_URL: process.env.API_URL,
           CORS_PROXY: process.env.CORS_PROXY,
           SENTRY_URL: process.env.SENTRY_URL,
+          RELEASE: RELEASE,
         },
       }),
     }),
