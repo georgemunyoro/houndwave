@@ -15,6 +15,7 @@ Sentry.init({
       mask: false,
     }),
   ],
+  release: __myapp.env.RELEASE,
 });
 
 const app = new App({
