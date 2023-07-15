@@ -97,9 +97,8 @@
       style="padding: 10px; margin-bottom: 10px;"
       class="card has-background-dark has-text-success"
     >
-      Things are a little broken at the moment :( Downloads won't be working as we're dealing with a throttling issue, but I'm working on getting it fixed.
-      <br/>Feel free to request features and file issues/bugs <a
-        href="https://github.com/georgemunyoro/houndwave">on the github repo</a
+      Feel free to request features and file issues/bugs
+      <a href="https://github.com/georgemunyoro/houndwave">on the github repo</a
       >
     </div>
     <div class="field has-addons has-desktop-shadow is-paddingless">
